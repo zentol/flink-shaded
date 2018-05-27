@@ -25,24 +25,16 @@ under the License.
     <parent>
         <groupId>org.apache.flink</groupId>
         <artifactId>flink-shaded</artifactId>
-        <version>3.0</version>
+        <version>4.0</version>
         <relativePath>..</relativePath>
     </parent>
 
     <artifactId>flink-shaded-netty</artifactId>
     <name>flink-shaded-netty-4</name>
-    <version>${netty.version}-3.0</version>
+    <version>${netty.version}-4.0</version>
 
     <properties>
-        <!-- Don't upgrade for now. Netty versions >= 4.0.28.Final
-        contain an improvement by Netty, which slices a Netty buffer
-        instead of doing a memory copy [1] in the
-        LengthFieldBasedFrameDecoder. In some situations, this
-        interacts badly with our Netty pipeline leading to OutOfMemory
-        errors.
-
-        [1] https://github.com/netty/netty/issues/3704 -->
-        <netty.version>4.0.27.Final</netty.version>
+        <netty.version>4.1.24.Final</netty.version>
     </properties>
 
     <dependencies>
@@ -50,12 +42,6 @@ under the License.
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>${netty.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>tv.cntt</groupId>
-            <artifactId>netty-router</artifactId>
-            <version>1.10</version>
         </dependency>
     </dependencies>
 
